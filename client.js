@@ -22,9 +22,9 @@ const connect = function () {
   });
 
 
-  conn.on("data", () => {
-    conn.write("Move: up");
-  });
+  // conn.on("data", () => {
+  //   conn.write("Move: up");
+  // });
   return conn;
 };
 

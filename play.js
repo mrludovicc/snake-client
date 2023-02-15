@@ -1,24 +1,8 @@
 const net = require('net');
-const connectObj = require('./client');
+const { connect } = require("./client");
+const { setupInput } = require("./input");
 
-// setup interface to handle user input from stdin
 
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-
-  const handleUserInput = function (key) {
-    // your code here
-    if (key === '\u0003') {
-      process.exit();
-    }
-  };
-  stdin.on("data", handleUserInput);
-  return stdin;
-};
-
-setupInput()
-connectObj.connect();
+connect();
+setupInput();
 console.log("Connecting ...");
